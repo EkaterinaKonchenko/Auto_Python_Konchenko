@@ -34,7 +34,7 @@ def test_delete_symbol_positive(input_str, symbol, expected):
     ("hello world", "world", True),
     ("python", "sky", False),
 ])
-def test_conyains_positive(input_str, symbol, expected):
+def test_contains_positive(input_str, symbol, expected):
     assert string_utils.contains(input_str, symbol) == expected
 
 
@@ -67,5 +67,6 @@ def test_delete_symbol_negative(input_str, symbol, expected):
     (":-))", ")", True),
     ("РУС#  ", " ", True),
 ])
-def test_conyains_negative(input_str, symbol, expected):
-    assert string_utils.contains(input_str, symbol) == expected   
+def test_contains_negative(input_str, symbol, expected):
+    assert string_utils.contains(input_str, symbol) == expected
+    
