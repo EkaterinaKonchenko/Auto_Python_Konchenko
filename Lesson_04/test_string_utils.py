@@ -53,10 +53,21 @@ def test_trim_negative(str_input):
     assert string_utils.trim(str_input) == "Lesson4      Lesson4"
 
 
+@pytest.mark.parametrize("str_input", ["     Lesson4      "])
+def test_trim_negative(str_input):
+    assert string_utils.trim(str_input) == "Lesson4      "
+
+
+@pytest.mark.parametrize("str_input", ["Lesson4"])
+def test_trim_negative(str_input):
+    assert string_utils.trim(str_input) == "Lesson4"
+
+
 @pytest.mark.parametrize("input_str, symbol, expected", [
     ("skypro", "m", "skypro"),
     ("123 world", "0", "123 world"),
     ("_Python", "z", "_Python"),
+    ("World", "", "World")
 ])
 def test_delete_symbol_negative(input_str, symbol, expected):
     assert string_utils.delete_symbol(input_str, symbol) == expected
@@ -65,7 +76,9 @@ def test_delete_symbol_negative(input_str, symbol, expected):
 @pytest.mark.parametrize("input_str, symbol, expected", [
     ("123 skypro", "123", True),
     (":-))", ")", True),
-    ("РУС#  ", " ", True),
+    ("РУС#  ", "", False),
+    ("РУС#  ", "р", False),
+    ("RuS", "U", False)
 ])
 def test_contains_negative(input_str, symbol, expected):
     assert string_utils.contains(input_str, symbol) == expected
