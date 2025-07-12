@@ -6,7 +6,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Firefox()
 driver.get("http://the-internet.herokuapp.com/login")
-
 search_box = driver.find_element(By.CSS_SELECTOR, "[id=username]")
 search_box.send_keys("tomsmith")
 search_box = driver.find_element(By.CSS_SELECTOR, "[id=password]")
